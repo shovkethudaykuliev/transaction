@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Account</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>My Account</h1>
+    <div class="balance-card">
+      <h2>Balance</h2>
+      <p class="balance">$<%= balance %></p>
+    </div>
+    <a class="btn" href="/add">Add Transaction</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% transactions.forEach(t => { %>
+          <tr>
+            <td><%= t.title %></td>
+            <td class="<%= t.type %>">$<%= t.amount %></td>
+            <td><%= t.type %></td>
+            <td><%= t.date %></td>
+            <td>
+              <a href="/edit/<%= t.id %>" class="btn small">Edit</a>
+              <a href="/delete/<%= t.id %>" class="btn small danger">Delete</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

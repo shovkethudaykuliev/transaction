@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Transaction</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Transaction</h1>
+    <form action="/edit/<%= transaction.id %>" method="POST">
+      <input type="text" name="title" value="<%= transaction.title %>" required>
+      <input type="number" name="amount" value="<%= transaction.amount %>" required>
+      <select name="type" required>
+        <option value="income" <%= transaction.type === "income" ? "selected" : "" %>>Income</option>
+        <option value="expense" <%= transaction.type === "expense" ? "selected" : "" %>>Expense</option>
+      </select>
+      <button type="submit" class="btn">Save Changes</button>
+    </form>
+    <a href="/" class="btn secondary">Cancel</a>
+  </div>
+</body>
+</html>
