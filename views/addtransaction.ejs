@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Transaction</title>
+  <!-- Burada CSS bağlanıyor -->
+  <link rel="stylesheet" href="/css/addtransaction.css">
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-header">
+      <h1>Add Transaction</h1>
+    </div>
+
+    <form action="/add-transaction" method="POST">
+      <!-- Title -->
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Please write here" required class="form-control">
+      </div>
+
+      <!-- Amount -->
+      <div class="form-group">
+        <label>Amount</label>
+        <input type="number" name="amount" placeholder="Please write here" required class="form-control">
+      </div>
+
+      <!-- Type -->
+      <div class="form-group">
+        <label>Transaction Type</label>
+        <div class="radio-group">
+          <label><input type="radio" name="type" value="Expense" checked> <span style="color:red;">Expense</span></label>
+          <label><input type="radio" name="type" value="Income"> <span style="color:green;">Income</span></label>
+        </div>
+      </div>
+
+      <!-- Date -->
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="date" required class="form-control">
+      </div>
+
+      <!-- Buttons -->
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

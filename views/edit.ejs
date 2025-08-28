@@ -1,22 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Edit Transaction</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/edit.css">
 </head>
 <body>
   <div class="container">
     <h1>Edit Transaction</h1>
-    <form action="/edit/<%= transaction.id %>" method="POST">
-      <input type="text" name="title" value="<%= transaction.title %>" required>
-      <input type="number" name="amount" value="<%= transaction.amount %>" required>
-      <select name="type" required>
-        <option value="income" <%= transaction.type === "income" ? "selected" : "" %>>Income</option>
-        <option value="expense" <%= transaction.type === "expense" ? "selected" : "" %>>Expense</option>
-      </select>
-      <button type="submit" class="btn">Save Changes</button>
+    <form action="/edit/<%= transaction.id %>" method="POST" class="form-box">
+      <h2>Transaction Details</h2>
+
+      <label>Title</label>
+      <input type="text" name="title" value="<%= transaction.title %>" placeholder="please write here" required>
+
+      <label>Amount</label>
+      <input type="number" name="amount" value="<%= transaction.amount %>" placeholder="please write here" required>
+
+      <label>Transaction Type</label>
+      <div class="toggle-box">
+        <label>
+          <input type="radio" name="type" value="Expense" <%= transaction.type === "Expense" ? "checked" : "" %>> Expense
+        </label>
+        <label>
+          <input type="radio" name="type" value="Income" <%= transaction.type === "Income" ? "checked" : "" %>> Income
+        </label>
+      </div>
+
+      <label>Date</label>
+      <input type="date" name="date" value="<%= transaction.date %>" placeholder="please write here" required>
+
+      <div class="btn-group">
+        <button type="submit" class="btn btn-save">Save Changes</button>
+        <a href="/" class="btn btn-cancel">Cancel</a>
+      </div>
     </form>
-    <a href="/" class="btn secondary">Cancel</a>
   </div>
 </body>
 </html>

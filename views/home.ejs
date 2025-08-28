@@ -1,42 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/home.css">
   <title>My Account</title>
-  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="container">
-    <h1>My Account</h1>
-    <div class="balance-card">
-      <h2>Balance</h2>
-      <p class="balance">$<%= balance %></p>
+
+    <div class="header">
+      <h1>My Account</h1>
+      <a href="/add-transaction" class="btn btn-primary">Add Transaction</a>
     </div>
-    <a class="btn" href="/add">Add Transaction</a>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Amount</th>
-          <th>Type</th>
-          <th>Date</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% transactions.forEach(t => { %>
+
+    <div class="card">
+      <p>Current Balance</p>
+      <h2 id="balance">$<%= balance.toLocaleString() %></h2>
+    </div>
+
+    <div class="card">
+      <h2>Recent Transactions</h2>
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= t.title %></td>
-            <td class="<%= t.type %>">$<%= t.amount %></td>
-            <td><%= t.type %></td>
-            <td><%= t.date %></td>
-            <td>
-              <a href="/edit/<%= t.id %>" class="btn small">Edit</a>
-              <a href="/delete/<%= t.id %>" class="btn small danger">Delete</a>
-            </td>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Actions</th>
           </tr>
-        <% }) %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% transactions.forEach(t => { %>
+            <tr>
+              <td><%= t.title %></td>
+              <td class="<%= t.type === 'Income' ? 'income' : 'expense' %>">
+                <%= t.type === 'Income' ? '+' : '-' %>$<%= Math.abs(t.amount).toFixed(2) %>
+              </td>
+              <td><%= t.type %></td>
+              <td><%= t.date %></td>
+              <td class="actions">
+                <a href="/edit/<%= t.id %>" class="edit">✏️</a>
+                <a href="/delete/<%= t.id %>" class="delete">🗑️</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </body>
 </html>

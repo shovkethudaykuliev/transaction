@@ -1,0 +1,111 @@
+body {
+      background: #f5f6f8;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary:hover {
+      background: #1e40af;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    #balance {
+      font-size: 32px;
+      font-weight: bold;
+      color: green;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .table th, .table td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    .table th {
+      font-weight: 600;
+    }
+
+    .income {
+      color: green;
+      font-weight: 500;
+    }
+
+    .expense {
+      color: red;
+      font-weight: 500;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .actions a {
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .actions a.edit {
+      color: #555;
+    }
+
+    .actions a.edit:hover {
+      color: black;
+    }
+
+    .actions a.delete {
+      color: red;
+    }
+
+    .actions a.delete:hover {
+      color: darkred;
+    }
